@@ -187,14 +187,25 @@ export const About = () => {
           <div className='grid grid-cols-1 md:grid-cols-2 gap-6 mt-8'> 
               <div className='p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all'>
                 <h3 className='text-xl font-bold mb-4'> <Book /> Education</h3>
-                <ul>
+                <ul className='list-disc list-inside text-gray-300 space-y-2'>
                   <li>
                     <strong>B.S in Computer Science</strong> -Abia State University [2020-2024]
+                  </li>
+                  <li>
+                    Relevant Corusework: Data analysis, Web development, Cloud computing, ...
                   </li>
                 </ul>
               </div>
               <div className='p-6 rounded-xl border-white/10 border hover:-translate-y-1 transition-all'>
                 <h3 className='text-xl font-bold mb-4'>Work Experience</h3>
+                <div className='space-y-4 text-gray-300'>
+                  <div>
+                    <h4 className='font-semibold'> Software Engineer as a Freelancer[2019 - present] </h4>
+                    <p>
+                      Developed and maintained web application for client base users
+                    </p>
+                  </div>
+                </div>
               </div>
           </div>
         </div>
