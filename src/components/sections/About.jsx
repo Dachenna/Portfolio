@@ -144,7 +144,7 @@ export const About = () => {
                 {frontend.map((frontend, key)=>(
                   <span key={key}
                     className='bg-violet-500/10 text-blue-500 py-1 px-3 rounded-full border border-gray-500/50 text-sm hover:bg-violet-500/20
-                            hover:shadow-[0_2px_8px_rgba(59,130,2246,0.2)] transition'
+                            hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition'
                   >
                     {frontend.icon ? (
                       <span className='inline-flex items-center gap-1'>
@@ -189,10 +189,10 @@ export const About = () => {
                 <h3 className='text-xl font-bold mb-4'> <Book /> Education</h3>
                 <ul className='list-disc list-inside text-gray-300 space-y-2'>
                   <li>
-                    <strong>B.S in Computer Science</strong> -Abia State University [2020-2024]
+                    <strong>B.S in Computer Science</strong> -Abia State University
                   </li>
                   <li>
-                    Relevant Corusework: Data analysis, Web development, Cloud computing, ...
+                    Relevant Coursework: Data analysis, Web development, Cloud computing, ...
                   </li>
                 </ul>
               </div>
