@@ -36,7 +36,7 @@ export const Projects = () => {
                     </div>
                         {/**Second Project */}
                      <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
-                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
                         <h3 className="text-xl font-bold mb-2">Naija Turf </h3>
                         <p className="text-gray-400 leading-snug justify-center m-1">
                            NiaJa Turf is a web application that provides a platform for users to explore and discover local events, activities, and attractions in Nigeria.
@@ -61,10 +61,62 @@ export const Projects = () => {
                         </div>
                     </div>
 
+                        {/**Third Project */}
+                        
+                   <div className="p-6 m-0 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
+                        <h3 className="text-xl font-bold mb-2">E-commerce Web App </h3>
+                        <p className="text-gray-400 leading-snug justify-center m-1">
+                          Full Stack e-commerce with a sleek, modern UI designed for an intuitive shopping experience. Features secure payment integration, customizable product inventory, real-time order tracking, and responsive layouts for seamless browsing on any device. Built with performance and scalability in mind, this project demonstrates expertise in both front-end and back-end development, delivering a robust and user-friendly online store.
+                        </p>
+                        <div>
+                            {["React", "Tailwind", "NodeJs", "MongoDB"].map((tech, key) =>(
+                               <span key={key}
+                                     className='bg-violet-500/10 text-blue-500 py-1 px-3 m-1 rounded-full border border-gray-500/50 text-sm hover:bg-violet-500/20
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                            <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors my-4"
+                            >
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+
+                    {/**Fourth Project */}
+                       <div className="p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
+                        <h3 className="text-xl font-bold mb-2">Naija Turf </h3>
+                        <p className="text-gray-400 leading-snug justify-center m-1">
+                           NiaJa Turf is a web application that provides a platform for users to explore and discover local events, activities, and attractions in Nigeria.
+                           It offers a user-friendly interface for browsing events, reading reviews, and finding information about various location in Nigeria.
+                        </p>
+                        <div>
+                            {["HTML", "CSS", "JavaScript", "Bootstrap"].map((tech, key) =>(
+                               <span key={key}
+                                     className='bg-violet-500/10 text-blue-500 py-1 px-3 m-1 rounded-full border border-gray-500/50 text-sm hover:bg-violet-500/20
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                            <a href="#" className="text-purple-400 hover:text-purple-300 transition-colors my-4"
+                            >
+                                View Project
+                            </a>
+                        </div>
+                    </div>
+                        
                 </div>
 
-                {/**Project Two */}
-                
             </div>
         </section>
     )
