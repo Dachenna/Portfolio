@@ -19,6 +19,7 @@ import
 import { RiFirebaseFill } from "react-icons/ri";
 import { MdRuleFolder } from "react-icons/md";
 import { TbApi, TbChartAreaLineFilled  } from "react-icons/tb";
+import { RevealOnScroll } from '../RevealOnScroll';
 
 export const About = () => {
 
@@ -120,7 +121,9 @@ export const About = () => {
 
   return (
     <section id='about' className='max-w-3xl mx-auto px-4 '>
-        <h2 className='text-3xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent'>
+     <RevealOnScroll>
+      <div className=' max-w-3xl mx-auto px-4'>
+         <h2 className='text-3xl font-bold mb-8 bg-gradient-to-r from-purple-500 to-cyan-400 bg-clip-text text-transparent'>
           {" "}
           About Me
         </h2>
@@ -209,6 +212,8 @@ export const About = () => {
               </div>
           </div>
         </div>
+      </div>
+     </RevealOnScroll>
     </section>
   )
 }
