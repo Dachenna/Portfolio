@@ -3,7 +3,7 @@ import { RevealOnScroll } from "../RevealOnScroll"
 export  const Contact = () => {
     return (
         <section 
-         id="contact"
+        id="contact"
          className="min-h-screen flex items-center justify py-20"
          >
             <RevealOnScroll>
@@ -42,11 +42,11 @@ export  const Contact = () => {
 
                          {/**Message */}
                         <div className="relative">
-                            <input 
+                            <textarea 
                                 id="message" 
-                                name="name" 
+                                name="message" 
                                 required 
-                                rows={6}
+                                rows={5}
                                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
                                 placeholder="Your Message..."
                              />

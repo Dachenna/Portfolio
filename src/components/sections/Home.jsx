@@ -24,8 +24,9 @@ function Home() {
             view Projects
           </a>
 
-          <a href="#contact" className='border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium  
+          <a href='#contact' className='border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium  
             transition-all hover:-translate-0.5 hover:shadow-[0_0_15px_rgba(59,130,246, 0.4)]
+            cursor-pointer
            hover:bg-blue-500/50 hover:text-white duration-400'>
             Contact Me
           </a>
