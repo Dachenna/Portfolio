@@ -1,4 +1,5 @@
 import { RevealOnScroll } from "../RevealOnScroll"
+import React, { useState } from "react";
 import emailjs from 'emailjs-com';
 
 export  const Contact = () => {
@@ -8,20 +9,18 @@ export  const Contact = () => {
         message: ''
     })
     // EmailJS configuration
-    const SERVICE_ID = 'service_go26d9b';
-    const TEMPLATE_ID = 'template_e3rggwn';
-    const PUBLIC_KEY = 'QmAVdmK_sUg2gieA2';
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then((result) => {
-            alert("Message sent successfully!");
-            setFormData({
-                name: '',
-                email: '',
-                message: ''
-            })
+        emailjs.sendForm(
+            import.meta.env.VITE_SERVICE_ID,
+            import.meta.env.VITE_TEMPLATE_ID,
+            e.target,
+            import.meta.env.VITE_PUBLIC_KEY
+        ).then(() => {
+            alert("Thank you! Your message has been sent successfully.");
+            setFormData({ name: '', email: '', message: '' }); // Reset form
         }).catch(() => alert("Oops! Something went wrong. Please try again later."));
     }
     return (
