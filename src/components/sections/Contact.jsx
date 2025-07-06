@@ -17,6 +17,11 @@ export  const Contact = () => {
 
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY).then((result) => {
             alert("Message sent successfully!");
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            })
         }).catch(() => alert("Oops! Something went wrong. Please try again later."));
     }
     return (
@@ -33,7 +38,7 @@ export  const Contact = () => {
                      >
                         Contact me
                      </h2>
-                    <form className="space-y-6">
+                    <form className="space-y-6" onSubmit={handleSubmit}>
                         {/**Name */}
                         <div className="relative">
                             <input 
