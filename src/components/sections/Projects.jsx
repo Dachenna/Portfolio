@@ -56,7 +56,7 @@ export const Projects = () => {
                         </div>
 
                         <div className="flex justify-between items-center">
-                            <a href="https://naija-turf.netlify.app/" className="text-purple-400 hover:text-purple-300 transition-colors my-4 text-sm sm:text-base"
+                            <a href="https://naija-turf.netlify.app/" target="_blank" className="text-purple-400 hover:text-purple-300 transition-colors my-4 text-sm sm:text-base"
                             >
                                 View Project →
                             </a>
