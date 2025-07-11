@@ -8,7 +8,6 @@ export  const Contact = () => {
         email: '',
         message: ''
     })
-    // EmailJS configuration
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -26,19 +25,18 @@ export  const Contact = () => {
     return (
         <section 
         id="contact"
-         className="min-h-screen flex items-center justify-center py-20"
-         >
+        className="min-h-screen flex items-center justify-center py-10 px-2 sm:px-0"
+        >
             <RevealOnScroll>
-                <div className="px-4 w-150">
-
-                    <h2 className="text-3xl font-bold mb-8 
+                <div className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto px-2 sm:px-4">
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-8 
                      bg-gradient-to-r from-purple-500 to-cyan-400 
-                     bg-clip-text text-transparent"
+                     bg-clip-text text-transparent text-center"
                      >
                         Contact me
                      </h2>
                     <form className="space-y-6" onSubmit={handleSubmit}>
-                        {/**Name */}
+                        {/* Name */}
                         <div className="relative">
                             <input 
                                 type="text" 
@@ -52,12 +50,12 @@ export  const Contact = () => {
                              />
                         </div>
 
-                        {/**Email */}
+                        {/* Email */}
                         <div className="relative">
                             <input 
                                 type="email" 
                                 id="email" 
-                                name="name" 
+                                name="email" 
                                 value={formData.email}
                                 required 
                                 className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
@@ -66,7 +64,7 @@ export  const Contact = () => {
                              />
                         </div>
 
-                         {/**Message */}
+                        {/* Message */}
                         <div className="relative">
                             <textarea 
                                 id="message" 
@@ -83,7 +81,7 @@ export  const Contact = () => {
                             type="submit"
                             className="w-full bg-purple-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden
                              hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
-                            Lets Connect
+                            Let's Connect
                         </button>
                     </form>
                 </div>

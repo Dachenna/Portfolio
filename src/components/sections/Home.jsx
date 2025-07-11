@@ -2,35 +2,40 @@ import { RevealOnScroll } from '../RevealOnScroll';
 
 function Home() {
   return (
-    <section id='home' className='min-h-screen grid grid-cols-1 md:grid-cols-2  items-center 
-      justify-center relative'
+    <section
+      id='home'
+      className='min-h-screen grid grid-cols-1 md:grid-cols-2 items-center justify-center relative px-2 md:px-0'
     >
       <RevealOnScroll>
-      <div className="text-center z-10 px-4">
-        <h1 className='text-6xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500
-         bg-clip-text text-transparent leading-right'>
-          Hi, I'm David
-        </h1>
-        
-        <p className="text-lg text-justify text-gray-400 max-w-lg mx-7 mb-3">
-         A passionate web developer a thinking format of looking
-         for innovative ways to solve problems by ephasizing efficency and optimization
-        </p>
+        <div className="w-full flex flex-col items-center justify-center z-10 px-2 md:px-4 py-8 md:py-0">
+          <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500
+           bg-clip-text text-transparent leading-tight text-center'>
+            Hi, I'm David
+          </h1>
 
-        <div className='flex px-7 space-x-4 '>
-          <a href="#projects" className='bg-violet-600 text-white px-4 py-3 rounded-md font-medium transition relative overflow-hidden hover:-translate-0.5 
-          hover:shadow-[0_0_15px_rgba(59,130,246, 0.4)] hover:bg-gradient-to-bl from-blue-500 to-purple-900 duration-400 '>
-            view Projects
-          </a>
+          <p className="text-base sm:text-lg text-justify text-gray-400 max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3">
+            A passionate web developer with a mindset for finding innovative ways to solve problems, emphasizing efficiency and optimization.
+          </p>
 
-          <a href='#contact' className='border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium  
-            transition-all hover:-translate-0.5 hover:shadow-[0_0_15px_rgba(59,130,246, 0.4)]
-            cursor-pointer
-           hover:bg-blue-500/50 hover:text-white duration-400'>
-            Contact Me
-          </a>
+          <div className='flex flex-col sm:flex-row w-full sm:w-auto px-0 sm:px-7 space-y-3 sm:space-y-0 sm:space-x-4 items-center justify-center'>
+            <a
+              href="#projects"
+              className='w-full sm:w-auto bg-violet-600 text-white px-4 py-3 rounded-md font-medium transition relative overflow-hidden hover:-translate-0.5 
+              hover:shadow-[0_0_15px_rgba(59,130,246,0.4)] hover:bg-gradient-to-bl from-blue-500 to-purple-900 duration-400 text-center'
+            >
+              View Projects
+            </a>
+
+            <a
+              href='#contact'
+              className='w-full sm:w-auto border border-blue-500/50 text-blue-500 py-3 px-6 rounded font-medium  
+              transition-all hover:-translate-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]
+              cursor-pointer hover:bg-blue-500/50 hover:text-white duration-400 text-center'
+            >
+              Contact Me
+            </a>
+          </div>
         </div>
-      </div>
       </RevealOnScroll>
     </section>
   )
