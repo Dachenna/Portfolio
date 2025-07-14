@@ -24,7 +24,8 @@ function Home() {
             <div className="h-0 w-[40rem] absolute top-[20%] right-[-100%]
             shadow-[0_0_900px_20px_#A98FEB] -rotate-[30deg] z-10"></div>
 
-            <div>
+          {/**3D greeting Robot */}
+            <div className=' absolute -right-[80%] -top-2 flex flex-col w-full z-20'>
               <Spline scene="https://prod.spline.design/C63u83ckAo1NBFnp/scene.splinecode" />
             </div>
 
