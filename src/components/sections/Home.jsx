@@ -6,7 +6,7 @@ function Home() {
     <section
       id='home'
       // On mobile, items will stack (grid-cols-1). On medium screens and up, they'll be side-by-side (grid-cols-2).
-      className='min-h-screen grid grid-cols-1 md:grid-cols-2 items-center justify-center relative px-2 md:px-0'
+      className=' overflow-x-hidden min-h-screen grid grid-cols-1 md:grid-cols-2 items-center justify-center relative px-2 md:px-0'
     >
       {/* Left Side: Text Content */}
       <RevealOnScroll>
