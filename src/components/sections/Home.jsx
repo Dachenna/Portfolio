@@ -11,12 +11,13 @@ function Home() {
       {/* Left Side: Text Content */}
       <RevealOnScroll>
         <div className="w-full flex flex-col items-center justify-center z-10 px-2 md:px-4 py-8 md:py-0 md:col-span-1">
-          <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500
+          <div className="sm:py-3 py-15 leading-snug">
+            <h1 className='text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500
            bg-clip-text text-transparent leading-tight text-center'>
             Hi, I'm David
-          </h1>
+           </h1>
 
-          <p className="text-base sm:text-lg text-justify text-gray-400 max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3">
+           <p className="text-base sm:text-lg text-justify text-gray-400 max-w-xs sm:max-w-md md:max-w-lg mx-auto mb-3">
             A passionate web developer with a mindset for finding innovative ways to solve problems, emphasizing efficiency and optimization.
           </p>
 
@@ -43,6 +44,8 @@ function Home() {
             >
               Contact Me
             </a>
+          </div>
+
           </div>
         </div>
       </RevealOnScroll>
