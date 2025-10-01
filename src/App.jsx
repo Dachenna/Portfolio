@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { LoadingScreen } from './components/LoadingScreen'
 import { Navbar } from './components/Navbar'
 import { MobileMenu } from './components/MobileMenu'
@@ -21,6 +22,7 @@ function App() {
         <About />
         <Projects />
         <Contact />
+        <SpeedInsights />
         </div>
     </div>
  ) 
