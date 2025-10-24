@@ -63,6 +63,7 @@ export  const Contact = () => {
                                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                              />
                         </div>
+                        
 
                         {/* Message */}
                         <div className="relative">

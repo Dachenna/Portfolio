@@ -9,7 +9,7 @@ export const Projects = () => {
                     Featured Project
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
+                    {/*First Project */}
                     <div className="p-4 sm:p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition">
                         <h3 className="text-lg sm:text-xl font-bold mb-2">Automated fiber grading via image recognition</h3>
@@ -88,7 +88,7 @@ export const Projects = () => {
                         </div>
                     </div>
                     {/* Fourth Project */}
-                       <div className="p-4 sm:p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
+                    <div className="p-4 sm:p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
                                      hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
                         <h3 className="text-lg sm:text-xl font-bold mb-2">Toka </h3>
                         <p className="text-gray-400 leading-snug justify-center m-1 text-sm sm:text-base">
@@ -112,7 +112,58 @@ export const Projects = () => {
                             </a>
                         </div>
                     </div>
-                        
+
+                    {/* Fift Project */}
+                    <div className="p-4 sm:p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
+                        <h3 className="text-lg sm:text-xl font-bold mb-2">Vudka Pour </h3>
+                        <p className="text-gray-400 leading-snug justify-center m-1 text-sm sm:text-base">
+                          Vudka Pour is a sleek, modern landing page designed to showcase the premium qualities of Vudka, Cocktails and other non achoholic Mocktails.
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {["React", "TailwindCSS"].map((tech, key) =>(
+                               <span key={key}
+                                     className='bg-violet-500/10 text-blue-500 py-1 px-3 m-1 rounded-full border border-gray-500/50 text-xs sm:text-sm hover:bg-violet-500/20
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                            <a href="https://gsap-2-gamma.vercel.app/" target="_blank" className="text-purple-400 hover:text-purple-300 transition-colors my-4 text-sm sm:text-base"
+                            >
+                                View Project →
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {/* Sixth Project */}
+                    <div className="p-4 sm:p-6 rounded-xl border border-white/10 hover:-translate-y-1 hover:border-purple-500/30 
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.2)] transition-all">
+                        <h3 className="text-lg sm:text-xl font-bold mb-2">Pixclean </h3>
+                        <p className="text-gray-400 leading-snug justify-center m-1 text-sm sm:text-base">
+                            Pixclean is a modern Saas project designed to provide the premium qualities of a photo editing service.
+                        </p>
+                        <div className="flex flex-wrap gap-2 mb-4">
+                            {["React", "TailwindCSS"].map((tech, key) =>(
+                               <span key={key}
+                                     className='bg-violet-500/10 text-blue-500 py-1 px-3 m-1 rounded-full border border-gray-500/50 text-xs sm:text-sm hover:bg-violet-500/20
+                                     hover:shadow-[0_2px_8px_rgba(59,130,246,0.1)] transition-all'
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+
+                        <div className="flex justify-between items-center">
+                            <a href="https://pixclean.vercel.app/" target="_blank" className="text-purple-400 hover:text-purple-300 transition-colors my-4 text-sm sm:text-base"
+                            >
+                                View Project →
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
             </div>
