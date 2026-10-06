@@ -4,8 +4,10 @@ import { LoadingScreen } from "./components/LoadingScreen"
 import { Navbar } from "./components/Navbar"
 import { MobileMenu } from "./components/MobileMenu"
 import Home from "./components/sections/Home"
-import { About } from "./components/sections/About"
 import { Projects } from "./components/sections/Projects"
+import { CaseStudy } from "./components/sections/CaseStudy"
+import { Studio } from "./components/sections/Studio"
+import { Process } from "./components/sections/Process"
 import { Contact } from "./components/sections/Contact"
 import "./index.css"
 
@@ -21,10 +23,13 @@ function App() {
         <MobileMenu menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
         <Home />
         <Projects />
-        <About />
+        <CaseStudy />
+        <Studio />
+        <Process />
         <Contact />
-        <footer className="border-t border-white/10 px-4 py-6 text-center text-xs tracking-[0.18em] text-[#9c968c]">
-          DBITS · DAVID DANIEL
+        <footer className="border-t border-white/10 px-4 py-10 text-center">
+          <p className="serif text-4xl">Thank you.</p>
+          <p className="mt-2 text-xs tracking-[0.18em] text-[#9c968c]">DBITS · DAVID DANIEL · NIGERIA</p>
         </footer>
         <SpeedInsights />
       </div>
