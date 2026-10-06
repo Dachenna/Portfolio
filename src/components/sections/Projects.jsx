@@ -1,15 +1,31 @@
+import { useRef, useState } from "react"
 import { RevealOnScroll } from "../RevealOnScroll"
 
+// Adapted from 21st.dev Project Index by ssycui (demo 30554).
+// Hover cover is CSS, not framer-motion, so the Vite build stays dependency-free.
 const work = [
-  { index: "01", name: "FeedLoop", role: "Flagship SaaS", summary: "Surveys, a response inbox, and an on-demand AI brief. The strongest live product on the account, updated this month.", stack: ["Next.js", "Supabase", "Tailwind"], live: "https://feed-loop-two.vercel.app", code: "https://github.com/Dachenna/FeedLoop" },
-  { index: "02", name: "Metallic", role: "Construction landing", summary: "A client-style landing for a construction company. Clean enough to pitch, not a free theme with the logo swapped.", stack: ["React", "JavaScript"], live: "https://metals-phi.vercel.app", code: "https://github.com/Dachenna/Metals" },
-  { index: "03", name: "Vudka Pour", role: "Motion landing", summary: "A spirits and mocktail page where the motion is the product. GSAP, not a static card with a stock bottle.", stack: ["React", "GSAP", "Tailwind"], live: "https://gsap-2-gamma.vercel.app/", code: "https://github.com/Dachenna/Gsap" },
-  { index: "04", name: "Pixclean", role: "Photo SaaS", summary: "A photo-editing product surface. Useful as proof of SaaS UI, not just brochure sites.", stack: ["TypeScript", "React", "Tailwind"], live: "https://pixclean.vercel.app/", code: "https://github.com/Dachenna/pix-clean" },
-  { index: "05", name: "Perfume", role: "Product landing", summary: "A fragrance commerce landing with a live deploy. The design repo, not the older experiment sitting beside it.", stack: ["JavaScript", "React"], live: "https://perfume-seven-pied.vercel.app", code: "https://github.com/Dachenna/Perfume" },
-  { index: "06", name: "Naija Turf", role: "Local discovery", summary: "An earlier Nigeria-focused discovery site. Kept because it is live, not because it is the current ceiling.", stack: ["HTML", "CSS", "JavaScript"], live: "https://naija-turf.netlify.app/", code: "https://github.com/Dachenna/Naija-turf" },
+  { title: "FeedLoop", tag: "Flagship SaaS", year: "2026", live: "https://feed-loop-two.vercel.app", code: "https://github.com/Dachenna/FeedLoop", grad: "radial-gradient(120% 140% at 20% 10%, rgba(214,176,122,0.55), transparent 60%), linear-gradient(150deg, #2b2010, #0c0b09)" },
+  { title: "Metallic", tag: "Construction landing", year: "2025", live: "https://metals-phi.vercel.app", code: "https://github.com/Dachenna/Metals", grad: "radial-gradient(120% 140% at 80% 15%, rgba(180,180,186,0.45), transparent 60%), linear-gradient(150deg, #1c1c1f, #0c0b09)" },
+  { title: "Vudka Pour", tag: "Motion landing", year: "2025", live: "https://gsap-2-gamma.vercel.app/", code: "https://github.com/Dachenna/Gsap", grad: "radial-gradient(120% 140% at 30% 85%, rgba(214,176,122,0.4), transparent 60%), linear-gradient(150deg, #24180f, #0c0b09)" },
+  { title: "Pixclean", tag: "Photo SaaS", year: "2025", live: "https://pixclean.vercel.app/", code: "https://github.com/Dachenna/pix-clean", grad: "radial-gradient(120% 140% at 70% 20%, rgba(120,160,210,0.4), transparent 60%), linear-gradient(150deg, #141c28, #0c0b09)" },
+  { title: "Perfume", tag: "Product landing", year: "2026", live: "https://perfume-seven-pied.vercel.app", code: "https://github.com/Dachenna/Perfume", grad: "radial-gradient(120% 140% at 40% 80%, rgba(196,150,170,0.4), transparent 60%), linear-gradient(150deg, #24161c, #0c0b09)" },
+  { title: "Naija Turf", tag: "Local discovery", year: "2024", live: "https://naija-turf.netlify.app/", code: "https://github.com/Dachenna/Naija-turf", grad: "radial-gradient(120% 140% at 80% 80%, rgba(42,161,115,0.4), transparent 60%), linear-gradient(150deg, #10241c, #0c0b09)" },
 ]
 
 export const Projects = () => {
+  const wrap = useRef(null)
+  const [hover, setHover] = useState(null)
+  const [pos, setPos] = useState({ x: 24, y: 24 })
+
+  const onMove = (e) => {
+    const r = wrap.current?.getBoundingClientRect()
+    if (!r) return
+    setPos({
+      x: Math.min(Math.max(e.clientX - r.left + 16, 8), r.width - 200),
+      y: Math.max(e.clientY - r.top - 70, 8),
+    })
+  }
+
   return (
     <section id="work" className="px-4 py-16">
       <RevealOnScroll>
@@ -21,29 +37,44 @@ export const Projects = () => {
             </div>
             <a href="https://github.com/Dachenna" target="_blank" rel="noreferrer" className="text-sm text-[#cfc8bb]">All repos</a>
           </div>
-          <div className="border-t border-white/10">
-            {work.map((item) => (
-              <article key={item.name} className="grid gap-4 border-b border-white/10 py-6 md:grid-cols-[80px_1.2fr_0.8fr] md:items-start">
-                <p className="text-sm text-[#9c968c]">{item.index}</p>
-                <div>
-                  <h3 className="text-2xl">{item.name}</h3>
-                  <p className="mt-1 text-sm text-[#d6b07a]">{item.role}</p>
-                  <p className="mt-3 max-w-xl text-[#cfc8bb]">{item.summary}</p>
-                </div>
-                <div className="flex flex-col gap-3 md:items-end">
-                  <div className="flex flex-wrap gap-2 md:justify-end">
-                    {item.stack.map((tech) => (
-                      <span key={tech} className="rounded-full border border-white/10 px-2 py-1 text-xs text-[#cfc8bb]">{tech}</span>
-                    ))}
-                  </div>
-                  <div className="flex gap-4 text-sm">
-                    <a href={item.live} target="_blank" rel="noreferrer" className="underline decoration-white/20 underline-offset-4">Live</a>
-                    <a href={item.code} target="_blank" rel="noreferrer" className="underline decoration-white/20 underline-offset-4">Code</a>
-                  </div>
-                </div>
-              </article>
+          <div ref={wrap} onPointerMove={onMove} className="relative">
+            {work.map((item, i) => (
+              <a
+                key={item.title}
+                href={item.live}
+                target="_blank"
+                rel="noreferrer"
+                onPointerEnter={() => setHover(i)}
+                onPointerLeave={() => setHover(null)}
+                className="group flex items-baseline gap-4 border-t border-white/10 py-4 last:border-b"
+              >
+                <span className={`text-lg font-semibold transition-colors sm:text-xl ${
+                  hover === null || hover === i ? "text-[#f3efe6]" : "text-[#f3efe6]/30"
+                }`}>
+                  {item.title}
+                </span>
+                <span className="min-w-0 flex-1 truncate text-xs text-[#9c968c]">{item.tag}</span>
+                <span className="text-[11px] text-[#9c968c]">{item.year}</span>
+                <span className="text-sm text-[#f3efe6]/40 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-[#d6b07a]">→</span>
+              </a>
             ))}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute z-10 hidden w-[180px] overflow-hidden rounded-lg border border-white/10 shadow-2xl transition-opacity duration-200 md:block"
+              style={{
+                left: pos.x,
+                top: pos.y,
+                opacity: hover === null ? 0 : 1,
+                background: hover === null ? "transparent" : work[hover].grad,
+              }}
+            >
+              <div className="relative aspect-[4/3]">
+                <span className="absolute left-[8%] top-[12%] h-[7%] w-[40%] rounded-full bg-white/15" />
+                <span className="absolute inset-x-[8%] bottom-[12%] top-[36%] rounded-md border border-white/10 bg-black/25" />
+              </div>
+            </div>
           </div>
+          <p className="mt-4 text-xs text-[#9c968c]">Work index adapted from 21st.dev / ssycui Project Index.</p>
         </div>
       </RevealOnScroll>
     </section>
