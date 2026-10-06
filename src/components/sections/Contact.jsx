@@ -1,92 +1,43 @@
+import { useState } from "react"
+import emailjs from "emailjs-com"
 import { RevealOnScroll } from "../RevealOnScroll"
-import React, { useState } from "react";
-import emailjs from 'emailjs-com';
 
-export  const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    })
+export const Contact = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [status, setStatus] = useState("")
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    setStatus("Sending")
+    emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target, import.meta.env.VITE_PUBLIC_KEY).then(() => {
+      setStatus("Sent. I will reply.")
+      setFormData({ name: "", email: "", message: "" })
+    }).catch(() => setStatus("Could not send. Try X or GitHub."))
+  }
 
-        emailjs.sendForm(
-            import.meta.env.VITE_SERVICE_ID,
-            import.meta.env.VITE_TEMPLATE_ID,
-            e.target,
-            import.meta.env.VITE_PUBLIC_KEY
-        ).then(() => {
-            alert("Thank you! Your message has been sent successfully.");
-            setFormData({ name: '', email: '', message: '' }); // Reset form
-        }).catch(() => alert("Oops! Something went wrong. Please try again later."));
-    }
-    return (
-        <section 
-        id="contact"
-        className="min-h-screen flex items-center justify-center py-10 px-2 sm:px-0"
-        >
-            <RevealOnScroll>
-                <div className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto px-2 sm:px-4">
-                    <h2 className="text-2xl sm:text-3xl font-bold mb-8 
-                     bg-gradient-to-r from-purple-500 to-cyan-400 
-                     bg-clip-text text-transparent text-center"
-                     >
-                        Contact me
-                     </h2>
-                    <form className="space-y-6" onSubmit={handleSubmit}>
-                        {/* Name */}
-                        <div className="relative">
-                            <input 
-                                type="text" 
-                                id="name" 
-                                name="name" 
-                                value={formData.name}
-                                required 
-                                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                                placeholder="Name..."
-                                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                             />
-                        </div>
-
-                        {/* Email */}
-                        <div className="relative">
-                            <input 
-                                type="email" 
-                                id="email" 
-                                name="email" 
-                                value={formData.email}
-                                required 
-                                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                                placeholder="example@gmail.com"
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                             />
-                        </div>
-                        
-
-                        {/* Message */}
-                        <div className="relative">
-                            <textarea 
-                                id="message" 
-                                name="message" 
-                                required 
-                                value={formData.message}
-                                rows={5}
-                                className="w-full bg-white/5 border border-white/10 rounded px-4 py-3 text-white transition focus:outline-none focus:border-blue-500 focus:bg-blue-500/5"
-                                placeholder="Your Message..."
-                                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                             />
-                        </div>
-                        <button 
-                            type="submit"
-                            className="w-full bg-purple-500 text-white py-3 px-6 rounded font-medium transition relative overflow-hidden
-                             hover:-translate-y-0.5 hover:shadow-[0_0_15px_rgba(59,130,246,0.4)]">
-                            Let's Connect
-                        </button>
-                    </form>
-                </div>
-            </RevealOnScroll>
-        </section>
-    )
+  return (
+    <section id="contact" className="px-4 py-16 pb-24">
+      <RevealOnScroll>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-2">
+          <div>
+            <p className="text-xs tracking-[0.22em] text-[#d6b07a]">CONTACT</p>
+            <h2 className="serif mt-3 text-4xl sm:text-5xl">If the site needs to sell, start here.</h2>
+            <p className="mt-4 max-w-md text-[#cfc8bb]">Landings, product builds, and redesigns. Tell me the business and the deadline.</p>
+            <div className="mt-8 flex flex-col gap-2 text-sm">
+              <a href="https://github.com/Dachenna" target="_blank" rel="noreferrer">GitHub · Dachenna</a>
+              <a href="https://x.com/Da_chenna" target="_blank" rel="noreferrer">X · @Da_chenna</a>
+              <a href="https://dbit.com.ng" target="_blank" rel="noreferrer">Studio · dbit.com.ng</a>
+            </div>
+          </div>
+          <form className="space-y-3" onSubmit={handleSubmit}>
+            <input name="name" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Name" className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-[#d6b07a]" />
+            <input type="email" name="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="Email" className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-[#d6b07a]" />
+            <textarea name="message" required rows={5} value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} placeholder="What should the site do?" className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none focus:border-[#d6b07a]" />
+            <button className="w-full rounded-full bg-[#d6b07a] py-3 text-sm font-medium text-[#0c0b09]">Send</button>
+            {status && <p className="text-sm text-[#cfc8bb]">{status}</p>}
+          </form>
+        </div>
+      </RevealOnScroll>
+    </section>
+  )
 }

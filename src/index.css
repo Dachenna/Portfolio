@@ -4,54 +4,50 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: "Space Grotesk", sans-serif;
-  background: #0a0a0a;
-  color: #f3f4f7;
+  background: #0c0b09;
+  color: #f3efe6;
 }
 
-@layer utilities{
-    @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-
-  .animate-blink {
-    animation: blink 0.8s step-end infinite;
-  }
-
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(250%);
-    }
-  }
-
-  .animate-loading-bar {
-    animation: loading 0.6s ease infinite;
-  }
+::selection {
+  background: #d6b07a;
+  color: #0c0b09;
 }
 
-/* styles.css */
-@keyframes loading-bar {
-  0% { width: 0%; }
-  100% { width: 100%; }
+.serif {
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
 }
-.animate-loading-bar {
-  animation: loading-bar 1s ease forwards;
+
+.grain {
+  background-image: radial-gradient(rgba(243, 239, 230, 0.045) 0.6px, transparent 0.6px);
+  background-size: 3px 3px;
 }
 
 .reveal {
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(18px);
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 0.8s step-end infinite;
+}
+
+@keyframes loading-bar {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 1s ease forwards;
 }

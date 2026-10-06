@@ -1,49 +1,45 @@
 import { useEffect } from "react"
 
-export const Navbar = ({menuOpen, setMenuOpen}) => {
+export const Navbar = ({ menuOpen, setMenuOpen }) => {
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : ""
+  }, [menuOpen])
 
-    useEffect(() => {
-        document.body.style.overflow = menuOpen ? "hidden" : "";
-    },[menuOpen])
+  const navLinks = [
+    { href: "#work", label: "Work" },
+    { href: "#studio", label: "Studio" },
+    { href: "#contact", label: "Contact" },
+  ]
 
-    const navLinks = [
-        { href: "#home", label: "Home" },
-        { href: "#about", label: "About" },
-        { href: "#projects", label: "Projects" },
-        { href: "#contact", label: "Contact" },
-    ];
-
-    return(
-        <nav className="fixed top-0 w-full z-40 bg-[rgba(10,10,10,0.8)] backdrop-blur-lg border-b border-gray-800 shadow-lg">
-            <div className="max-w-5xl mx-auto px-2 sm:px-4">
-                <div className="flex justify-between items-center h-16">
-                    <a href="#home"
-                       className="font-mono text-xl font-bold">
-                        {" "}
-                        David<span className="text-blue-500">.bits</span>{" "}
-                    </a>
-                    <div className="w-7 h-5 relative cursor-pointer z-40 md:hidden"
-                        onClick={() => setMenuOpen(prev => !prev)}>
-                        &#9776;
-                    </div>
-
-                    <div className="hidden md:flex items-center space-x-4 sm:space-x-8">
-                        {navLinks.map(link => (
-                            <div key={link.href} className="relative group">
-                                <a
-                                    href={link.href}
-                                    className="text-gray-300 hover:text-blue-600 transition-colors text-base sm:text-lg px-2"
-                                >
-                                    {link.label}
-                                </a>
-                                <div className="absolute left-0 -bottom-1 w-full h-[2px] bg-transparent group-hover:bg-gray-800 rounded overflow-hidden">
-                                    <div className="h-full bg-blue-500 shadow-[0_0_15px_#3b82f6] w-0 group-hover:animate-loading-bar"></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </nav>
-    )
+  return (
+    <nav className="fixed top-0 z-40 w-full border-b border-white/10 bg-[#0c0b09]/80 backdrop-blur-md">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <a href="#home" className="text-sm font-semibold tracking-[0.22em]">
+          DBITS
+        </a>
+        <button
+          className="text-sm tracking-wide md:hidden"
+          onClick={() => setMenuOpen((prev) => !prev)}
+          aria-label="Open menu"
+        >
+          Menu
+        </button>
+        <div className="hidden items-center gap-8 md:flex">
+          {navLinks.map((link) => (
+            <a key={link.href} href={link.href} className="text-sm text-[#cfc8bb] hover:text-white">
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="https://github.com/Dachenna"
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-[#d6b07a]/50 px-3 py-1 text-sm text-[#d6b07a]"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </nav>
+  )
 }
